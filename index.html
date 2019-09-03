@@ -1,0 +1,63 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Big Fat Learning Doc</title>
+    <h1>We are learning about JS and web browsers today</h1>
+
+    <h3>Cat animation sample</h3>
+    <p style="text-align: center">
+      <ul>
+        <h3>Postion: </h3>
+        <li>Default position is set to <strong>static</strong>
+          <ul>
+              <li style="border: dotted red 1px">
+                The element sits in its normal place in the document
+                  <img src="panther.png" style="position: static; border: solid black 1px" height="100" width="100"/>
+              </li>
+          </ul>
+        </li>
+        <li>Set to <strong>relative</strong></li>
+          <ul>
+            <li style="border: dotted red 1px"> 
+              The element still takes up space in the document, but now the <strong>top</strong> and <strong>left</strong> style properties can be used to move it realtive to its normal place
+              <img src="panther.png" style="position: relative; border: solid black 1px; top: 10px; left: 10px;" height="100" width="100"/>
+            </li>
+          </ul>
+        <li> Set to <strong>absolute</strong></li>
+          <ul>
+            <li style="border: dotted red 1px">
+              The element is removed from the normal document flow, that is, it <i><strong>no longer takes up space and may overlap</strong></i> with other elements
+              <img src="panther.png" style="position: absolute; border: solid black 1px; top: 10px; left: 10px;" height="100" width="100"/>
+            </li>
+          </ul>
+      </ul>
+      <p style="position: relative; left: 20px;">
+          <img id="mover" src="panther.png" style="position: relative" height="100" width="100"/>
+      </p>
+      <hr>
+      <p style="position: relative; left: 20px;">
+        An older style of animating, taking advantage of the <strong>setInterval</strong> method, every certain amount of milliseconds execute the callback, the callback is setting the images left value to an incrememnting value but this essentially is demanding the browser re run all of these frames and it can overwhelm the browser and cause a much bigger pull in energy at a cost of efficiency
+        <br>
+          <img id="oldMover" src="panther.png" style="position: relative" height="100" width="100"/>
+      </p>
+      <hr>
+      <p style="position: relative; left: 20px;">
+          The appropriate way to animate using request animation frame. This tells the browser 'whenever youre ready I need this done'
+          <br>
+            <img id="newMover" src="panther.png" style="position: relative" height="100" width="100"/>
+      </p>
+      <hr>
+      <p style="position: relateve; left: 20px;">
+        Lets take advantage of the time stamp that requestAnimationFrame sends to the callback
+        <br>
+        <p id="percentDone"></p>
+        <p id="progressBar"></p>
+        <img id="timedMover" src="panther.png" style="position: relative" height="100" width="100"/>
+      </p>
+    </p>
+  </head>
+  <body></body>
+  <script src="main.js"></script>
+</html>

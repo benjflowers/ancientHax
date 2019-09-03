@@ -64,15 +64,24 @@ requestAnimationFrame(newMove);
 const timedMover = document.getElementById("timedMover");
 const percentDone = document.getElementById("percentDone");
 const progressBar = document.getElementById("progressBar");
+const alert = document.getElementById("alert");
 progressBar.style.backgroundColor = "green";
 var startTime;
 
 function moveIt(timeStamp, el, dist, duration) {
+  alert.style = "color: red";
+  alert.innerHTML = "WORKING ON IT";
   let runTime = timeStamp - startTime;
   let progress = runTime / duration;
+
   percentDone.innerHTML = (progress * 100).toFixed(0) + "%";
   progressBar.innerHTML = "|";
   progressBar.style.width = (progress * 100).toFixed(0) + "%";
+
+  if ((progress * 100).toFixed(0) == 100) {
+    alert.innerHTML = "DONE";
+    alert.style = "color: green";
+  }
   progress = Math.min(progress, 1);
   el.style.left = (dist * progress).toFixed(2) + "px";
   if (runTime < duration) {
@@ -84,5 +93,5 @@ function moveIt(timeStamp, el, dist, duration) {
 
 requestAnimationFrame(function(timeStamp) {
   startTime = timeStamp;
-  moveIt(timeStamp, timedMover, 500, 60000);
+  moveIt(timeStamp, timedMover, 500, 8000);
 });
